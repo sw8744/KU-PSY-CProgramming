@@ -36,6 +36,12 @@
     <ClCompile Include="ascii.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="game\typingPractice.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="game.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header.h">

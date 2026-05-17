@@ -125,7 +125,9 @@
   <ItemGroup>
     <ClCompile Include="ascii.c" />
     <ClCompile Include="flag.c" />
+    <ClCompile Include="game.c" />
     <ClCompile Include="game\rockScissorsPaper.c" />
+    <ClCompile Include="game\typingPractice.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="move.c" />
     <ClCompile Include="util.c" />

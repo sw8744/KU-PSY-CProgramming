@@ -18,11 +18,11 @@ void clear_pos(struct coord start_coord, struct coord end_coord) {
 	}
 }
 
-int isNotMove(int x, int y, struct flag* flags) {
-	if (x == WIDTH - 1 || x == 0 || y == HEIGHT - 1 || y == 0) {
+int isNotMove(int x, int y, struct flag* flags, int flagSize, int width, int height) {
+	if (x == width - 1 || x == 0 || y == height - 1 || y == 0) {
 		return 1;
 	}
-	for (int i = 0; i < FLAG_COUNT; i++) {
+	for (int i = 0; i < flagSize; i++) {
 		if (x == flags[i].x && y == flags[i].y) {
 			return 1;
 		}
@@ -34,28 +34,38 @@ int selectValue(struct coord* coords, int length) {
 	int select = 0;
 	while (1) {
 		goToXY(coords[select].x, coords[select].y);
-		printf("x\b");
-		int ch = _getch();
-		if (ch == 13) {
-			goToXY(0, coords[length - 1].y + 2);
-			return select;
-		}
-		if (ch == 224) {
-			ch = _getch();
-			switch (ch) {
-			case 72:
-				if (select > 0) {
-					printf(" ");
-					select--;
-				}
-				break;
+		if (coords[select].y >= 0) {
+			printf("x\b");
+			int ch = _getch();
+			if (ch == 13) {
+				goToXY(0, coords[length - 1].y + 2);
+				return select;
+			}
+			if (ch == 224) {
+				ch = _getch();
+				switch (ch) {
+				case 72:
+					if (select > 0) {
+						printf(" ");
+						select--;
+					}
+					break;
 
-			case 80:
-				if (select < length - 1) {
-					printf(" ");
-					select++;
+				case 80:
+					if (select < length - 1) {
+						printf(" ");
+						select++;
+					}
+					break;
 				}
-				break;
+			}
+		}
+		else {
+			if (select < length - 1) {
+				select++;
+			}
+			else {
+				select--;
 			}
 		}
 	}

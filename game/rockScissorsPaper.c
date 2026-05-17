@@ -4,12 +4,10 @@
 void printHand(int k, int isReverse) {
 	if (!isReverse) {
 		goToXY(0, 0);
-		if (k == 0)
-		{
+		if (k == 0) {
 			printf("%s\n", scissors);
 		}
-		else if (k == 1)
-		{
+		else if (k == 1) {
 			printf("%s\n", rock);
 		}
 		else if (k == 2)
@@ -20,15 +18,15 @@ void printHand(int k, int isReverse) {
 	else {
 		if (k == 0)
 		{
-			printAsciiXY(scissors_reverse, 20, 1);
+			printAsciiXY(scissors_reverse, 20, 0);
 		}
 		else if (k == 1)
 		{
-			printAsciiXY(rock_reverse, 20, 1);
+			printAsciiXY(rock_reverse, 20, 0);
 		}
 		else if (k == 2)
 		{
-			printAsciiXY(paper_reverse, 20, 1);
+			printAsciiXY(paper_reverse, 20, 0);
 		}
 	}
 }

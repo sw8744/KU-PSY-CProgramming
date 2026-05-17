@@ -8,36 +8,38 @@
 
 // visual.c
 extern void printBanner(int start_x, int start_y);
-extern void printBox(int start_x, int start_y, char* value);
+extern void printBox(int start_x, int start_y, char* value, int isDisabled);
 extern void printAsciiXY(char* ascii, int x, int y);
 extern void placeStage(int width, int height);
 extern void placeFlag(struct flag* flags, int size); 
-extern void placePlayer(int x, int y);
+extern void placePlayer(struct coord playerPos);
 
 // flag.c
-extern void initFlags(int width_max, int height_max, struct flag* flags);
-extern int checkConflictFlag(int index, struct flag* flags);
+extern void initFlags(int width_max, int height_max, struct flag* flags, int count, struct coord playerPos);
+extern int checkConflictFlag(int index, struct flag* flags, struct coord playerPos);
+extern struct flag getFlagInfo(struct coord flagPos, struct flag* flags, int flagSize);
 
 // move.c
 extern void goToXY(int x, int y);
-extern void movePlayer(int* x, int* y, struct flag* flags);
+extern void movePlayer(int* x, int* y, struct flag* flags, int flagSize, int width, int height);
 
 // util.c
 extern int random_range(int min, int max);
 extern void clear();
-extern int isNotMove(int x, int y, struct flag* flags);
+extern int isNotMove(int x, int y, struct flag* flags, int flagSize, int width, int height);
 extern int selectValue(struct coord* coords, int length);
 extern void clear_pos(struct coord start_coord, struct coord end_coord);
 
 // ascii.c
-extern char* banner;
-extern char* box;
-extern char* rock;
-extern char* paper;
-extern char* scissors;
-extern char* scissors_reverse;
-extern char* rock_reverse;
-extern char* paper_reverse;
+extern char banner[];
+extern char box[];
+extern char disabledBox[];
+extern char rock[];
+extern char paper[];
+extern char scissors[];
+extern char scissors_reverse[];
+extern char rock_reverse[];
+extern char paper_reverse[];
 
 // games
 // rockScissorsPaper.c

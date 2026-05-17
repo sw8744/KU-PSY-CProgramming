@@ -1,16 +1,21 @@
-extern char* banner =
+extern char banner[] =
 "  _  ___   _ _          _       _                 _                  \n"
 " | |/ / | | ( )___     / \\   __| |_   _____ _ __ | |_ _   _ _ __ ___ \n"
 " | ' /| | | |// __|   / _ \\ / _` \\ \\ / / _ \\ '_ \\| __| | | | '__/ _ \\\n"
 " | . \\| |_| | \\__ \\  / ___ \\ (_| |\\ V /  __/ | | | |_| |_| | | |  __/\n"
 " |_|\\_\\\\___/  |___/ /_/   \\_\\__,_| \\_/ \\___|_| |_|\\__|\\__,_|_|  \\___|\n";
 
-extern char* box =
+extern char box[] =
 "+------------------------+\n"
 "| [ ]                    |\n"
 "+------------------------+\n";
 
-extern char* scissors =
+extern char disabledBox[] =
+"+------------------------+\n"
+"| [O]                    |\n"
+"+------------------------+\n";
+
+extern char scissors[] =
 "    _______        \n"
 "---'   ____)____   \n"
 "          ______)  \n"
@@ -18,7 +23,7 @@ extern char* scissors =
 "      (____)       \n"
 "---.__(___)        \n";
 
-extern char* rock =
+extern char rock[] =
 "    _______        \n"
 "---'   ____)       \n"
 "      (_____)      \n"
@@ -26,7 +31,7 @@ extern char* rock =
 "      (____)       \n"
 "---.__(___)        \n";
 
-extern char* paper =
+extern char paper[] =
 "     _______       \n"
 "---'    ____)____  \n"
 "           ______) \n"
@@ -34,7 +39,7 @@ extern char* paper =
 "         _______)  \n"
 "---.__________)    \n";
 
-extern char* scissors_reverse =
+extern char scissors_reverse[] =
 "        _______    \n"
 "   ____(____   '---\n"
 "  (______          \n"
@@ -42,7 +47,7 @@ extern char* scissors_reverse =
 "       (____)      \n"
 "        (___)__.---\n";
 
-extern char* rock_reverse =
+extern char rock_reverse[] =
 "        _______    \n"
 "       (____   '---\n"
 "      (_____)      \n"
@@ -50,7 +55,7 @@ extern char* rock_reverse =
 "       (____)      \n"
 "        (___)__.---\n";
 
-extern char* paper_reverse =
+extern char paper_reverse[] =
 "       _______     \n"
 "  ____(____    '---\n"
 " (______           \n"

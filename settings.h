@@ -1,13 +1,24 @@
-#define WIDTH 20
-#define HEIGHT 10
-#define FLAG_COUNT 5
+﻿#define WIDTH_EASY 20
+#define HEIGHT_EASY 10
+#define FLAG_COUNT_EASY 5
+#define DEFAULT_PLAYER_X_EASY 1
+#define DEFAULT_PLAYER_Y_EASY HEIGHT_EASY - 2
 
-#define DEFAULT_PLAYER_X 1
-#define DEFAULT_PLAYER_Y HEIGHT - 1
+#define WIDTH_NORMAL 30
+#define HEIGHT_NORMAL 15
+#define FLAG_COUNT_NORMAL 6
+#define DEFAULT_PLAYER_X_NORMAL 1
+#define DEFAULT_PLAYER_Y_NORMAL HEIGHT_NORMAL - 2
+
+#define WIDTH_HARD 40
+#define HEIGHT_HARD 20
+#define FLAG_COUNT_HARD 7
+#define DEFAULT_PLAYER_X_HARD 1
+#define DEFAULT_PLAYER_Y_HARD HEIGHT_HARD - 2
 
 #define STAGE_WALL "#"
-#define FLAG "¢º"
-#define PLAYER "¡Ü"
+#define FLAG "▶"
+#define PLAYER "◆"
 
 //typingPractice
 #define NUM_SENTENCES 8

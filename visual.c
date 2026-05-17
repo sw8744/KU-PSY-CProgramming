@@ -7,9 +7,14 @@ void printBanner(int start_x, int start_y) {
 	printf("%s", banner);
 }
 
-void printBox(int start_x, int start_y, char* value) {
+void printBox(int start_x, int start_y, char* value, int isDisabled) {
 	goToXY(start_x, start_y);
-	printf("%s", box);
+	if (isDisabled) {
+		printf("%s", disabledBox);
+	}
+	else {
+		printf("%s", box);
+	}
 	goToXY(start_x + 6, start_y + 1);
 	printf("%s", value);
 	goToXY(start_x, start_y + 2);
@@ -23,8 +28,8 @@ void printAsciiXY(char* ascii, int x, int y) {
 			break;
 		}
 		if (ascii[i] == '\n') {
-			goToXY(x, y + line);
 			line++;
+			goToXY(x, y + line);
 			continue;
 		}
 		printf("%c", ascii[i]);
@@ -58,8 +63,8 @@ void placeFlag(struct flag* flags, int size) {
 	}
 }
 
-void placePlayer(int x, int y) {
+void placePlayer(struct coord playerPos) {
 	printf(" ");
-	goToXY(x, y);
+	goToXY(playerPos.x, playerPos.y);
 	printf("%s\b", PLAYER);
 }
