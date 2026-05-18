@@ -26,6 +26,7 @@ void printDialog(int x, int y, char* name, char* conv) {
 	goToXY(x + 1, y + 3);
 	printf("%s", conv);
 	goToXY(0, y + 5);
+	spaceToStart();
 }
 
 void printAsciiXY(char* ascii, int x, int y) {

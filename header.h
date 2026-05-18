@@ -42,6 +42,7 @@ extern char box[];
 extern char disabledBox[];
 extern char dialog[];
 extern char cutscene1[];
+extern char cutscene2[];
 extern char rock[];
 extern char paper[];
 extern char scissors[];

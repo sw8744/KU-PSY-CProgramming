@@ -7,7 +7,8 @@ void sniper() {
     int isHorizontalAligned = 0, isVerticalAligned = 0;
 
     printf("[ 스나이퍼 ]\n\n");
-    printf("Enter 키를 눌러 움직이는 사각형을 틀 안에 넣어 조준경을 정렬하세요!\n\n");
+    printf("자라가 먹이 사냥에 어려움을 겪고 있네요!\n");
+    printf("Enter 키를 눌러 움직이는 사각형을 틀 안에 넣어 조준경을 정렬해 자라를 도우세요!\n\n");
     printf("시작하려면 스페이스를 누르세요. \n나가려면 ESC를 누르세요.\n");
     
     if (spaceToStart()) {

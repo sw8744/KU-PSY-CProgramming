@@ -19,7 +19,17 @@ int main(void) {
 		printAsciiXY(cutscene1, 0, 0);
 		clearPos(0, 24, 60, 30);
 		printDialog(0, 24, "KU", "안녕! 나는 KU야!");
-		spaceToStart();
+		printDialog(0, 24, "KU", "지금 C프로그래밍 A+를 받기 위해 일감호에 왔어.");
+		printDialog(0, 24, "KU", "어! 저기 자라가 있어!");
+		clear();
+		printAsciiXY(cutscene2, 0, 0);
+		printDialog(0, 24, "자라", "안녕! 나는 자라야!");
+		printDialog(0, 24, "자라", "A+를 받고 싶다면 일감호에서 보물 3개를 얻어 와!");
+		clear();
+		printAsciiXY(cutscene1, 0, 0);
+		printDialog(0, 24, "KU", "휴! 언제 다 보물을 모으지...");
+		printDialog(0, 24, "KU", "그래도 A+를 받을 수만 있다면...");
+		printDialog(0, 24, "KU", "가자! 보물을 찾으러 일감호로!");
 
 		while (1) {
 			if (isEasyCleared && isNormalCleared && isHardCleared) {

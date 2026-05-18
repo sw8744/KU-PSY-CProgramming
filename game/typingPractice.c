@@ -18,6 +18,7 @@ void typingPractice() {
     int randomIndex = rand() % NUM_SENTENCES;
 
     printf("[ C언어 복습 타자 연습 ]\n\n");
+    printf("자라가 여러분을 위해 C프로그래밍 과외를 해 준다고 합니다!\n");
     printf("제시되는 문장을 10초 안에 정확하게 입력하세요!\n\n");
     printf("시작하려면 스페이스를 누르세요. \n나가려면 ESC를 누르세요.\n");
     if (spaceToStart()) {
