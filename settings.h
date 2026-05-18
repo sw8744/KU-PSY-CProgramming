@@ -23,6 +23,11 @@
 // dud
 #define DUD_SECONDS 10
 
+// itemQuickPick
+extern void initItems(int width_max, int height_max, struct flag* items, int count, struct coord playerPos);
+extern void move(struct coord playerPos, struct flag* items, int size);
+extern int checkItem(int x, int y, struct flag* items, int size);
+
 //typingPractice
 #define NUM_SENTENCES 8
 #define MAX_LENGTH 100

@@ -59,6 +59,9 @@ extern void rockScissorsPaper();
 // sniper.c
 extern void sniper();
 
+// itemQuickPick.c
+extern void itemQuickPick();
+
 // typingPractice.c
 extern void typingPractice();
 

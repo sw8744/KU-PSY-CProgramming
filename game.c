@@ -47,7 +47,7 @@ void gameStarter(int gameID) {
 		break;
 	}
 	case 9: {
-		// TODO: 아이템 빨리먹기 관련 작업 필요
+		itemQuickPick();
 		break;
 	}
 	case 10: {

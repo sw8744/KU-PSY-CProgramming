@@ -69,9 +69,8 @@ int main(void) {
 				placeStage(WIDTH_EASY, HEIGHT_EASY);
 				placeFlag(flags, FLAG_COUNT_EASY);
 				placePlayer(playerPos);
-				while (1) {
-					struct coord prevPos = playerPos;
 
+				while (1) {
 					int game = movePlayer(&playerPos.x, &playerPos.y, flags, FLAG_COUNT_EASY, WIDTH_EASY, HEIGHT_EASY).item_id;
 
 					if (game >= 0) {
