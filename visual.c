@@ -19,6 +19,15 @@ void printBox(int start_x, int start_y, char* value, int isDisabled) {
 	goToXY(start_x, start_y + 2);
 }
 
+void printDialog(int x, int y, char* name, char* conv) {
+	printAsciiXY(dialog, x, y);
+	goToXY(x + 1, y + 1);
+	printf("[ %s ]", name);
+	goToXY(x + 1, y + 3);
+	printf("%s", conv);
+	goToXY(0, y + 5);
+}
+
 void printAsciiXY(char* ascii, int x, int y) {
 	goToXY(x, y);
 	int line = 0;

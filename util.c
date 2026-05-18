@@ -9,11 +9,11 @@ void clear() {
 	system("cls");
 }
 
-void clear_pos(struct coord start_coord, struct coord end_coord) {
-	for (int i = 0; i <= end_coord.x - start_coord.x; i++) {
-		for (int j = 0; j <= end_coord.y - start_coord.y; j++) {
-			goToXY(start_coord.x + i, start_coord.y + j);
-			printf("\b ");
+void clearPos(int x0, int y0, int x, int y) {
+	for (int i = 0; i <= x - x0; i++) {
+		for (int j = 0; j <= y - y0; j++) {
+			goToXY(x0 + i, y0 + j);
+			printf(" ");
 		}
 	}
 }

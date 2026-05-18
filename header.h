@@ -9,6 +9,7 @@
 // visual.c
 extern void printBanner(int start_x, int start_y);
 extern void printBox(int start_x, int start_y, char* value, int isDisabled);
+extern void printDialog(int x, int y, char* name, char* dialog);
 extern void printAsciiXY(char* ascii, int x, int y);
 extern void placeStage(int width, int height);
 extern void placeFlag(struct flag* flags, int size); 
@@ -28,7 +29,7 @@ extern int random_range(int min, int max);
 extern void clear();
 extern int isNotMove(int x, int y, struct flag* flags, int flagSize, int width, int height);
 extern int selectValue(struct coord* coords, int length);
-extern void clear_pos(struct coord start_coord, struct coord end_coord);
+extern void clearPos(int x0, int y0, int x, int y);
 extern int spaceToStart();
 extern void escToExit();
 
@@ -39,6 +40,8 @@ extern void gameStarter(int gameID);
 extern char banner[];
 extern char box[];
 extern char disabledBox[];
+extern char dialog[];
+extern char cutscene1[];
 extern char rock[];
 extern char paper[];
 extern char scissors[];

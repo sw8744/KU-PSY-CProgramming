@@ -13,7 +13,7 @@ void typingPractice() {
         "포인터를 함수의 매개 변수로 전달할 수 있다.",
         "gets_s 함수는 문자열 끝에 널 문자를 추가한다."
     };
-    char Typing[MAX_LENGTH];
+    char typing[MAX_LENGTH];
 
     int randomIndex = rand() % NUM_SENTENCES;
 
@@ -28,8 +28,8 @@ void typingPractice() {
 
         time_t startTime = time(NULL);
 
-        fgets(Typing, sizeof(Typing), stdin);
-        Typing[strcspn(Typing, "\n")] = '\0';
+        fgets(typing, sizeof(typing), stdin);
+        typing[strcspn(typing, "\n")] = '\0';
 
         time_t endTime = time(NULL);
         double duration = difftime(endTime, startTime);
@@ -37,7 +37,7 @@ void typingPractice() {
         printf("\n=== 결과 ===\n");
         if (duration > TIME_LIMIT)
             printf("실패! 시간 초과! (%.0f초 걸림 / 10초 제한)\n", duration);
-        else if (strcmp(sentences[randomIndex], Typing) == 0)
+        else if (strcmp(sentences[randomIndex], typing) == 0)
             printf("성공! (%.0f초 걸림)\n", duration);
         else
             printf("실패! 오타가 있습니다! (문장과 정확히 일치해야 합니다)\n");

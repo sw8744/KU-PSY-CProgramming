@@ -16,7 +16,10 @@ int main(void) {
 	if (!select) {
 		clear();
 
-		// TODO: 스토리 확정나면 여기에 컷씬 넣어야함
+		printAsciiXY(cutscene1, 0, 0);
+		clearPos(0, 24, 60, 30);
+		printDialog(0, 24, "KU", "안녕! 나는 KU야!");
+		spaceToStart();
 
 		while (1) {
 			if (isEasyCleared && isNormalCleared && isHardCleared) {
@@ -97,7 +100,10 @@ int main(void) {
 		}
 		clear();
 
-		// TODO: 여기에 끝 컷씬 넣어야 함.
+		printAsciiXY(cutscene1, 0, 0);
+		clearPos(0, 24, 60, 30);
+		printDialog(0, 24, "KU", "A + 줘서 고마워 자라야!");
+		spaceToStart();
 
 	}
 
