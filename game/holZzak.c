@@ -52,7 +52,7 @@ void openCup(int a) {
 
 void holZzak(void) {
 
-	int a, chi, s;
+	int coin, choice, s;
 
 	clear();
 	printf("[ 홀짝 게임 ]\n\n");
@@ -61,7 +61,7 @@ void holZzak(void) {
 
 	if (spaceToStart())
 	{
-		a = rand() % 2 + 1;
+		coin = rand() % 2 + 1;
 
 		clear();
 
@@ -73,25 +73,25 @@ void holZzak(void) {
 			printf("홀이면 1 짝이면 2를 입력하세요 :       \b\b\b\b\b\b");
 
 
-			if (scanf("%d", &chi) != 1) {
+			if (scanf("%d", &choice) != 1) {
 				while (getchar() != '\n');
 				continue;
 			}
 
-			if ((chi == 1) || (chi == 2))
+			if ((choice == 1) || (choice == 2))
 			{
-				s = isHolZzakSame(a, chi);
+				s = isHolZzakSame(coin, choice);
 				if (s == 1)
 				{
 					clear();
-					openCup(a);
+					openCup(coin);
 					goToXY(0, 10);
 					printf("성공!!\n\n");
 				}
 				else
 				{
 					clear();
-					openCup(a);
+					openCup(coin);
 					goToXY(0, 10);
 					printf("실패!!\n\n");
 				}

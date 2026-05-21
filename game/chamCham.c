@@ -1,27 +1,22 @@
 #include "../header.h"
 #include "../settings.h"
 
-void printCham(int a) {
+void dirCham(int a) {
 	goToXY(0, 0);
 
-	if (a == 1)
-	{
+	if (a == 1){
 		printf("%s", cham_up);
 	}
-	else if (a == 2)
-	{
+	else if (a == 2){
 		printf("%s", cham_right);
 	}
-	else if (a == 3)
-	{
+	else if (a == 3){
 		printf("%s", cham_down);
 	}
-	else if (a == 4)
-	{
+	else if (a == 4){
 		printf("%s", cham_left);
 	}
-	else if (a == 0)
-	{
+	else if (a == 0){
 		printf("%s", cham_stop);
 	}
 }
@@ -57,8 +52,8 @@ void chamCham(void) {
 		int e = 0;
 		int ch;
 
-		printCham(0);
-		goToXY(0, 15);
+		dirCham(0);
+		goToXY(0, 16);
 		printf("연속 성공 횟수 : %d / 4", e);
 
 		while (e <= 3) {
@@ -68,28 +63,24 @@ void chamCham(void) {
 
 				time_t elapsed = current_time - s_time;
 
-				if (elapsed < 2)
-				{
+				if (elapsed < 2){
 					c = 0;
-					printCham(0);
+					dirCham(0);
 				}
-				else if (elapsed == 2)
-				{
+				else if (elapsed == 2) {
 					c = 1;
-					printCham(a);
+					dirCham(a);
 				}
-				else if (elapsed >= 3)
-				{
+				else if (elapsed >= 3) {
 					c = 0;
 					s_time = current_time;
 					a = rand() % 4 + 1;
-					printCham(0);
+					dirCham(0);
 				}
 				last_time = current_time;
 			}
 
-			if (_kbhit())
-			{
+			if (_kbhit()) {
 				ch = _getch();
 				if (ch == 224)
 					ch = _getch();
@@ -123,7 +114,7 @@ void chamCham(void) {
 						e = 0;
 					break;
 				}
-				goToXY(0, 15);
+				goToXY(0, 16);
 				printf("연속 성공 횟수 : %d / 4", e);
 
 			}
@@ -131,7 +122,7 @@ void chamCham(void) {
 		}
 
 		goToXY(0, 15);
-		printf("성공!!\n\n");
+		printf("성공!!\n");
 		printf("나가려면 ESC 키를 누르세요.");
 		escToExit();
 
