@@ -60,7 +60,6 @@ int chamCham(void) {
 			current_time = time(0);
 
 			if (current_time != last_time) {
-
 				time_t elapsed = current_time - s_time;
 
 				if (elapsed < 2){
@@ -82,45 +81,46 @@ int chamCham(void) {
 
 			if (_kbhit()) {
 				ch = _getch();
-				if (ch == 224)
+				if (ch == 224) {
 					ch = _getch();
-				switch (ch) {
-				case 72:
-					k = 1;
-					if (isSameDir(a, k, c))
-						e += 1;
+					switch (ch) {
+					case 72:
+						k = 1;
+						if (isSameDir(a, k, c))
+							e += 1;
 
-					break;
-				case 77:
-					k = 2;
-					if (isSameDir(a, k, c))
-						e += 1;
-					else
-						e = 0;
-					break;
-				case 80:
-					k = 3;
-					if (isSameDir(a, k, c))
-						e += 1;
-					else
-						e = 0;
-					break;
+						break;
+					case 77:
+						k = 2;
+						if (isSameDir(a, k, c))
+							e += 1;
+						else
+							e = 0;
+						break;
+					case 80:
+						k = 3;
+						if (isSameDir(a, k, c))
+							e += 1;
+						else
+							e = 0;
+						break;
 
-				case 75:
-					k = 4;
-					if (isSameDir(a, k, c))
-						e += 1;
-					else
-						e = 0;
-					break;
+					case 75:
+						k = 4;
+						if (isSameDir(a, k, c))
+							e += 1;
+						else
+							e = 0;
+						break;
+					}
+				}
+				else {
+					e = 0;
 				}
 				goToXY(0, 16);
 				printf("연속 성공 횟수 : %d / 4", e);
-
 			}
-
 		}
-
 		goToXY(0, 15);
 		printf("성공!!\n");
 		printf("나가려면 ESC 키를 누르세요.");

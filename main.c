@@ -203,12 +203,12 @@ int main(void) {
 		printAsciiXY(cutscene1, 0, 0);
 		printDialog(0, 24, "KU", "자라야 A+ 줘서 고마워!");
 		spaceToStart();
+		clear();
+		printBanner(0, 0);
+		printf("\n\nGame Cleared!");
 	}
 
-	clear();
-	printBanner(0, 0);
-	printf("\n\nGame Cleared!");
-	printf("나가려면 ESC 키를 누르세요.");
+	printf("\n\n나가려면 ESC 키를 누르세요.\n");
 	escToExit();
 
 	return 0;
