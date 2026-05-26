@@ -38,6 +38,18 @@ int main(void) {
 			
 			clear();
 
+			if (isEasyCleared == -1) {
+				isEasyCleared = 0;
+			}
+
+			if (isNormalCleared == -1) {
+				isNormalCleared = 0;
+			}
+
+			if (isHardCleared == -1) {
+				isHardCleared = 0;
+			}
+
 			// 난이도 선택
 			printBanner(0, 0);
 			printBox(0, 7, "쉬움", isEasyCleared);
@@ -75,7 +87,7 @@ int main(void) {
 			case 0: {
 				clear();
 				int coin = 0, key = 0, chance = 0;
-				int isGameCleared[12] = { 0 };
+				int isGameCleared[12] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 				struct flag flags[FLAG_COUNT_EASY];
 				int x = DEFAULT_PLAYER_X_EASY, y = DEFAULT_PLAYER_Y_EASY;
 				struct coord playerPos = { x, y };
@@ -84,30 +96,100 @@ int main(void) {
 				placeFlag(flags, FLAG_COUNT_EASY);
 				placePlayer(playerPos);
 
+				time_t startTime = time(NULL);
 				while (!isEasyCleared) {
-					goToXY(0, 20);
-					printf("coin: %d / ", coin);
-					printf("key: %d", isGameCleared[10]);
+					goToXY(WIDTH_EASY + 5, HEIGHT_EASY / 2 - 3);
+					printf("[ 나의 정보 ]");
+					goToXY(WIDTH_EASY + 5, HEIGHT_EASY / 2 - 1);
+					printf("열쇠 : %3d개", key);
+					goToXY(WIDTH_EASY + 5, HEIGHT_EASY / 2);
+					printf("코인 : %3d개", coin);
+					goToXY(WIDTH_EASY + 5, HEIGHT_EASY / 2 + 1);
+					printf("확률 : %3d%%", chance);
+					
 					goToXY(playerPos.x, playerPos.y);
 					int game = movePlayer(&playerPos.x, &playerPos.y, flags, FLAG_COUNT_EASY, WIDTH_EASY, HEIGHT_EASY).item_id;
 
 					if (game >= 0) {
-						gameStarter(game, &coin, &key, chance, isGameCleared, &isEasyCleared);
+						gameStarter(game, &coin, &key, KEY_STANDARD_EASY, &chance, isGameCleared, &isEasyCleared, startTime, TIME_STANDARD_EASY);
 						clear();
 						placeStage(WIDTH_EASY, HEIGHT_EASY);
 						placeFlag(flags, FLAG_COUNT_EASY);
 						placePlayer(playerPos);
 					}
-					
 				}
 				break;
 			}
 			case 1: {
-				isNormalCleared = 1;
+				clear();
+				int coin = 0, key = 0, chance = 0;
+				int isGameCleared[12] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+				struct flag flags[FLAG_COUNT_NORMAL];
+				int x = DEFAULT_PLAYER_X_NORMAL, y = DEFAULT_PLAYER_Y_NORMAL;
+				struct coord playerPos = { x, y };
+				initFlags(WIDTH_NORMAL, HEIGHT_NORMAL, flags, FLAG_COUNT_NORMAL, playerPos);
+				placeStage(WIDTH_NORMAL, HEIGHT_NORMAL);
+				placeFlag(flags, FLAG_COUNT_NORMAL);
+				placePlayer(playerPos);
+
+				time_t startTime = time(NULL);
+				while (!isNormalCleared) {
+					goToXY(WIDTH_NORMAL + 5, HEIGHT_NORMAL / 2 - 3);
+					printf("[ 나의 정보 ]");
+					goToXY(WIDTH_NORMAL + 5, HEIGHT_NORMAL / 2 - 1);
+					printf("열쇠 : %3d개", key);
+					goToXY(WIDTH_NORMAL + 5, HEIGHT_NORMAL / 2);
+					printf("코인 : %3d개", coin);
+					goToXY(WIDTH_NORMAL + 5, HEIGHT_NORMAL / 2 + 1);
+					printf("확률 : %3d%%", chance);
+
+					goToXY(playerPos.x, playerPos.y);
+					int game = movePlayer(&playerPos.x, &playerPos.y, flags, FLAG_COUNT_NORMAL, WIDTH_NORMAL, HEIGHT_NORMAL).item_id;
+
+					if (game >= 0) {
+						gameStarter(game, &coin, &key, KEY_STANDARD_NORMAL, &chance, isGameCleared, &isNormalCleared, startTime, TIME_STANDARD_NORMAL);
+						clear();
+						placeStage(WIDTH_NORMAL, HEIGHT_NORMAL);
+						placeFlag(flags, FLAG_COUNT_NORMAL);
+						placePlayer(playerPos);
+					}
+				}
 				break;
 			}
 			case 2: {
-				isHardCleared = 1;
+				clear();
+				int coin = 0, key = 0, chance = 0;
+				int isGameCleared[12] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+				struct flag flags[FLAG_COUNT_HARD];
+				int x = DEFAULT_PLAYER_X_HARD, y = DEFAULT_PLAYER_Y_HARD;
+				struct coord playerPos = { x, y };
+				initFlags(WIDTH_HARD, HEIGHT_HARD, flags, FLAG_COUNT_HARD, playerPos);
+				placeStage(WIDTH_HARD, HEIGHT_HARD);
+				placeFlag(flags, FLAG_COUNT_HARD);
+				placePlayer(playerPos);
+
+				time_t startTime = time(NULL);
+				while (!isHardCleared) {
+					goToXY(WIDTH_HARD + 5, HEIGHT_HARD / 2 - 3);
+					printf("[ 나의 정보 ]");
+					goToXY(WIDTH_HARD + 5, HEIGHT_HARD / 2 - 1);
+					printf("열쇠 : %3d개", key);
+					goToXY(WIDTH_HARD + 5, HEIGHT_HARD / 2);
+					printf("코인 : %3d개", coin);
+					goToXY(WIDTH_HARD + 5, HEIGHT_HARD / 2 + 1);
+					printf("확률 : %3d%%", chance);
+
+					goToXY(playerPos.x, playerPos.y);
+					int game = movePlayer(&playerPos.x, &playerPos.y, flags, FLAG_COUNT_HARD, WIDTH_HARD, HEIGHT_HARD).item_id;
+
+					if (game >= 0) {
+						gameStarter(game, &coin, &key, KEY_STANDARD_HARD, &chance, isGameCleared, &isHardCleared, startTime, TIME_STANDARD_HARD);
+						clear();
+						placeStage(WIDTH_HARD, HEIGHT_HARD);
+						placeFlag(flags, FLAG_COUNT_HARD);
+						placePlayer(playerPos);
+					}
+				}
 				break;
 			}
 			}

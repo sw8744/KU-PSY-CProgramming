@@ -8,7 +8,7 @@
 	11: 퀴즈
 */
 
-void gameStarter(int gameID, int* coin, int* key, int chance, int* isGameCleared, int* isStageCleared) {
+void gameStarter(int gameID, int* coin, int* key, int keyStandard, int* chance, int* isGameCleared, int* isStageCleared, time_t startTime, int standardTime) {
 	int rewardCoin = 0, isCleared = 0;
 	switch (gameID) {
 	case 0: {
@@ -16,62 +16,62 @@ void gameStarter(int gameID, int* coin, int* key, int chance, int* isGameCleared
 		break;
 	}
 	case 1: {
-		treasure(*key, isStageCleared);
+		treasure(*key, keyStandard, isStageCleared, startTime, standardTime);
 		break;
 	}
 	case 2: {
-		// TODO: 상점 관련 작업 필요
+		store(coin, key, chance);
 		break;
 	}
 	case 3: {
 		isCleared = holZzak();
-		rewardCoin = 2;
+		rewardCoin = 20;
 		break;
 	}
 	case 4: {
 		isCleared = rockScissorsPaper();
-		rewardCoin = 2;
+		rewardCoin = 25;
 		break;
 	}
 	case 5: {
 		isCleared = chamCham();
-		rewardCoin = 5;
+		rewardCoin = 30;
 		break;
 	}
 	case 6: {
 		isCleared = pressKey();
-		rewardCoin = 5;
+		rewardCoin = 35;
 		break;
 	}
 	case 7: {
 		isCleared = upDown();
-		rewardCoin = 7;
+		rewardCoin = 40;
 		break;
 	}
 	case 8: {
 		isCleared = sniper();
-		rewardCoin = 7;
+		rewardCoin = 45;
 		break;
 	}
 	case 9: {
 		isCleared = itemQuickPick();
-		rewardCoin = 10;
+		rewardCoin = 50;
 		break;
 	}
 	case 10: {
 		isCleared = typingPractice();
-		rewardCoin = 10;
+		rewardCoin = 55;
 		break;
 	}
 	case 11: {
 		isCleared = quiz();
-		rewardCoin = 10;
+		rewardCoin = 60;
 		break;
 	}
 	}
 	clear();
 	if (isCleared) {
-		reward(coin, key, chance, rewardCoin, isGameCleared[gameID]);
+		reward(coin, key, *chance, rewardCoin, isGameCleared[gameID]);
 		isGameCleared[gameID] = 1;
 		clear();
 	}

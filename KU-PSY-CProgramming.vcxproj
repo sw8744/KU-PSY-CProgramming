@@ -134,6 +134,7 @@
     <ClCompile Include="game\quizGame.c" />
     <ClCompile Include="game\rockScissorsPaper.c" />
     <ClCompile Include="game\sniper.c" />
+    <ClCompile Include="game\store.c" />
     <ClCompile Include="game\treasure.c" />
     <ClCompile Include="game\typingPractice.c" />
     <ClCompile Include="game\upDown.c" />

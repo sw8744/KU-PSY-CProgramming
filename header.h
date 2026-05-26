@@ -36,10 +36,11 @@ extern void escToExit();
 extern void reward(int* coin, int* key, int chance, int reward, int isAlreadyCleared);
 
 // game.c
-extern void gameStarter(int gameID, int* coin, int* key, int chance, int* isGameCleared, int* isStageCleared);
+extern void gameStarter(int gameID, int* coin, int* key, int keyStandard, int* chance, int* isGameCleared, int* isStageCleared, time_t startTime, int standardTime);
 
 // ascii.c
 extern char banner[];
+extern char storeBanner[];
 extern char box[];
 extern char disabledBox[];
 extern char quizBox[];
@@ -70,8 +71,11 @@ extern char five_blank[];
 // dud.c
 extern void dud();
 
+// store.c
+extern void store(int* coin, int* keys, int* chance);
+
 // treasure.c
-extern void treasure(int key, int* isCleared);
+extern void treasure(int key, int keyStandard, int* isCleared, time_t startTime, int timeStandard);
 
 // rockScissorsPaper.c
 extern void printHand(int k, int isReverse);
