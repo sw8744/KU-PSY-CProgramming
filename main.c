@@ -3,6 +3,7 @@
 
 int main(void) {
 	int isEasyCleared = 0, isNormalCleared = 0, isHardCleared = 0;
+	int isEasySelected = 0, isNormalSelected = 0, isHardSelected = 0;
 	srand((unsigned)time(NULL));
 
 	// 게임 시작 여부 선택
@@ -31,49 +32,37 @@ int main(void) {
 		printDialog(0, 24, "KU", "그래도 A+를 받을 수만 있다면...");
 		printDialog(0, 24, "KU", "가자! 보물을 찾으러 일감호로!");
 
-		while (1) {
-			if (isEasyCleared && isNormalCleared && isHardCleared) {
-				break;
-			}
-			
+		int stageOrder[3] = { -1, -1, -1 };
+		int gameIndex = 0;
+
+		for (int i = 0; i < 3; i++) {
 			clear();
 
-			if (isEasyCleared == -1) {
-				isEasyCleared = 0;
-			}
-
-			if (isNormalCleared == -1) {
-				isNormalCleared = 0;
-			}
-
-			if (isHardCleared == -1) {
-				isHardCleared = 0;
-			}
 
 			// 난이도 선택
 			printBanner(0, 0);
-			printBox(0, 7, "쉬움", isEasyCleared);
-			printBox(0, 10, "보통", isNormalCleared);
-			printBox(0, 13, "어려움", isHardCleared);
+			printBox(0, 7, "쉬움", isEasySelected);
+			printBox(0, 10, "보통", isNormalSelected);
+			printBox(0, 13, "어려움", isHardSelected);
 
 			struct coord coords[3] = { {3, -1}, {3, -1}, {3, -1} };
 			int length = 3;
 
-			if (!isEasyCleared) {
+			if (!isEasySelected) {
 				coords[0].x = 3;
 				coords[0].y = 8;
 			}
 
-			if (!isNormalCleared) {
+			if (!isNormalSelected) {
 				coords[1].x = 3;
 				coords[1].y = 11;
 			}
 
-			if (!isHardCleared) {
+			if (!isHardSelected) {
 				coords[2].x = 3;
 				coords[2].y = 14;
 			}
-			
+
 			for (int i = 0; i < 3; i++) {
 				if (coords[i].y >= 0) {
 					goToXY(coords[i].x, coords[i].y);
@@ -82,6 +71,31 @@ int main(void) {
 			}
 
 			int select = selectValue(coords, length);
+			stageOrder[gameIndex] = select;
+
+			switch (select) {
+			case 0:
+				isEasySelected = 1;
+				gameIndex++;
+				break;
+			case 1:
+				isNormalSelected = 1;
+				gameIndex++;
+				break;
+			case 2:
+				isHardSelected = 1;
+				gameIndex++;
+				break;
+			}
+		}
+
+		gameIndex = 0;
+		while (1) {
+			if (isEasyCleared && isNormalCleared && isHardCleared) {
+				break;
+			}
+
+			select = stageOrder[gameIndex];
 
 			switch (select) {
 			case 0: {
@@ -110,7 +124,7 @@ int main(void) {
 					goToXY(playerPos.x, playerPos.y);
 					int game = movePlayer(&playerPos.x, &playerPos.y, flags, FLAG_COUNT_EASY, WIDTH_EASY, HEIGHT_EASY).item_id;
 
-					if (game >= 0) {
+					if (game >= -1) {
 						gameStarter(game, &coin, &key, KEY_STANDARD_EASY, &chance, isGameCleared, &isEasyCleared, startTime, TIME_STANDARD_EASY);
 						clear();
 						placeStage(WIDTH_EASY, HEIGHT_EASY);
@@ -118,6 +132,7 @@ int main(void) {
 						placePlayer(playerPos);
 					}
 				}
+				gameIndex += isEasyCleared;
 				break;
 			}
 			case 1: {
@@ -146,7 +161,7 @@ int main(void) {
 					goToXY(playerPos.x, playerPos.y);
 					int game = movePlayer(&playerPos.x, &playerPos.y, flags, FLAG_COUNT_NORMAL, WIDTH_NORMAL, HEIGHT_NORMAL).item_id;
 
-					if (game >= 0) {
+					if (game >= -1) {
 						gameStarter(game, &coin, &key, KEY_STANDARD_NORMAL, &chance, isGameCleared, &isNormalCleared, startTime, TIME_STANDARD_NORMAL);
 						clear();
 						placeStage(WIDTH_NORMAL, HEIGHT_NORMAL);
@@ -154,6 +169,7 @@ int main(void) {
 						placePlayer(playerPos);
 					}
 				}
+				gameIndex += isNormalCleared;
 				break;
 			}
 			case 2: {
@@ -182,7 +198,7 @@ int main(void) {
 					goToXY(playerPos.x, playerPos.y);
 					int game = movePlayer(&playerPos.x, &playerPos.y, flags, FLAG_COUNT_HARD, WIDTH_HARD, HEIGHT_HARD).item_id;
 
-					if (game >= 0) {
+					if (game >= -1) {
 						gameStarter(game, &coin, &key, KEY_STANDARD_HARD, &chance, isGameCleared, &isHardCleared, startTime, TIME_STANDARD_HARD);
 						clear();
 						placeStage(WIDTH_HARD, HEIGHT_HARD);
@@ -190,8 +206,23 @@ int main(void) {
 						placePlayer(playerPos);
 					}
 				}
+				gameIndex += isHardCleared;
 				break;
 			}
+			}
+			if (isEasyCleared == -1) {
+				gameIndex++;
+				isEasyCleared = 0;
+			}
+
+			if (isNormalCleared == -1) {
+				gameIndex++;
+				isNormalCleared = 0;
+			}
+
+			if (isHardCleared == -1) {
+				gameIndex++;
+				isHardCleared = 0;
 			}
 		}
 		clear();

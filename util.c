@@ -96,18 +96,19 @@ void escToExit() {
 void reward(int* coin, int* key, int chance, int reward, int isAlreadyCleared) {
 	printf("[ 보상 ]\n\n");
 	if (!isAlreadyCleared) {
-		printf("첫 클리어 보상을 획득하였습니다!\n");
+		printf("\"최초 클리어 보상을 획득하였습니다!\" (+%dG)\n", FIRST_CLEAR_REWARD);
+		printf("\"클리어 보상 획득하였습니다!\" (+%dG)\n", reward);
 		(*coin) += FIRST_CLEAR_REWARD + reward;
 	}
 	else if (rand() % 100 < chance) {
-		printf("축하합니다! 열쇠를 획득하였습니다!\n");
+		printf("\"축하합니다! 열쇠를 획득하였습니다!\"\n");
 		(*key)++;
 	}
 	else {
-		printf("코인을 획득하였습니다!\n");
+		printf("\"클리어 보상 획득하였습니다! (+%dG)\"\n", reward);
 		(*coin) += reward;
 	}
-	printf("ESC 키를 누르면 나가집니다.\n");
+	printf(" ESC 키를 누르면 나가집니다.\n");
 	escToExit();
 	clear();
 }

@@ -29,7 +29,7 @@
 #define FIRST_CLEAR_REWARD 100
 
 // dud
-#define DUD_SECONDS 10
+#define DUD_SECONDS 5
 
 // pressKey
 #define HIT_COUNT 0
