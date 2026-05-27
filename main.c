@@ -112,12 +112,10 @@ int main(void) {
 
 				time_t startTime = time(NULL);
 				while (!isEasyCleared) {
-					goToXY(WIDTH_HARD + 5, HEIGHT_HARD / 2 - 4);
+					goToXY(WIDTH_HARD + 5, HEIGHT_HARD / 2 - 3);
 					printf("[ 나의 정보 ]");
-					goToXY(WIDTH_HARD + 5, HEIGHT_HARD / 2 - 2);
-					printf("난도 : 쉬움");
 					goToXY(WIDTH_HARD + 5, HEIGHT_HARD / 2 - 1);
-					printf("코인 : %3d개", coin);
+					printf("난도 : 쉬움");
 					goToXY(WIDTH_HARD + 5, HEIGHT_HARD / 2);
 					printf("코인 : %3d개", coin);
 					goToXY(WIDTH_HARD + 5, HEIGHT_HARD / 2 + 1);
@@ -151,12 +149,10 @@ int main(void) {
 
 				time_t startTime = time(NULL);
 				while (!isNormalCleared) {
-					goToXY(WIDTH_HARD + 5, HEIGHT_HARD / 2 - 4);
+					goToXY(WIDTH_HARD + 5, HEIGHT_HARD / 2 - 3);
 					printf("[ 나의 정보 ]");
-					goToXY(WIDTH_HARD + 5, HEIGHT_HARD / 2 - 2);
-					printf("난도 : 보통");
 					goToXY(WIDTH_HARD + 5, HEIGHT_HARD / 2 - 1);
-					printf("코인 : %3d개", coin);
+					printf("난도 : 보통");
 					goToXY(WIDTH_HARD + 5, HEIGHT_HARD / 2);
 					printf("코인 : %3d개", coin);
 					goToXY(WIDTH_HARD + 5, HEIGHT_HARD / 2 + 1);
@@ -190,12 +186,10 @@ int main(void) {
 
 				time_t startTime = time(NULL);
 				while (!isHardCleared) {
-					goToXY(WIDTH_HARD + 5, HEIGHT_HARD / 2 - 4);
+					goToXY(WIDTH_HARD + 5, HEIGHT_HARD / 2 - 3);
 					printf("[ 나의 정보 ]");
-					goToXY(WIDTH_HARD + 5, HEIGHT_HARD / 2 - 2);
-					printf("난도 : 어려움");
 					goToXY(WIDTH_HARD + 5, HEIGHT_HARD / 2 - 1);
-					printf("코인 : %3d개", coin);
+					printf("난도 : 어려움");
 					goToXY(WIDTH_HARD + 5, HEIGHT_HARD / 2);
 					printf("코인 : %3d개", coin);
 					goToXY(WIDTH_HARD + 5, HEIGHT_HARD / 2 + 1);
