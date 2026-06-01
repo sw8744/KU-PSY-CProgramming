@@ -11,6 +11,9 @@
 void gameStarter(int gameID, int* coin, int* key, int keyStandard, int* chance, int* isGameCleared, int* isStageCleared, time_t startTime, int standardTime) {
     int rewardCoin = 0, isCleared = 0;
     switch (gameID) {
+    case -2:
+        *key += 1;
+        break;
     case -1:
         *isStageCleared = 1;
         break;

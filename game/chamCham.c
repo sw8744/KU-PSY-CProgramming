@@ -86,31 +86,47 @@ int chamCham(void) {
 					switch (ch) {
 					case 72:
 						k = 1;
-						if (isSameDir(a, k, c))
+						if (isSameDir(a, k, c)) {
 							e += 1;
-
+							playSuccessSound();
+						}
+						else {
+							e = 0;
+							playBeepSound();
+						}
 						break;
 					case 77:
 						k = 2;
-						if (isSameDir(a, k, c))
+						if (isSameDir(a, k, c)) {
 							e += 1;
-						else
+							playSuccessSound();
+						}
+						else {
 							e = 0;
+							playBeepSound();
+						}
 						break;
 					case 80:
 						k = 3;
-						if (isSameDir(a, k, c))
+						if (isSameDir(a, k, c)) {
 							e += 1;
-						else
+							playSuccessSound();
+						}
+						else {
 							e = 0;
+							playBeepSound();
+						}
 						break;
-
 					case 75:
 						k = 4;
-						if (isSameDir(a, k, c))
+						if (isSameDir(a, k, c)) {
 							e += 1;
-						else
+							playSuccessSound();
+						}
+						else {
 							e = 0;
+							playBeepSound();
+						}
 						break;
 					}
 				}
@@ -124,6 +140,7 @@ int chamCham(void) {
 		goToXY(0, 15);
 		printf("성공!!\n");
 		printf("나가려면 ESC 키를 누르세요.");
+		playClearSound();
 		escToExit();
 		return 1;
 	}

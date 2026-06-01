@@ -1,5 +1,6 @@
 #include "header.h"
 #include "settings.h"
+#include "resource.h"
 
 int random_range(int min, int max) {
 	return rand() % (max - min) + min;
@@ -39,9 +40,11 @@ int selectValue(struct coord* coords, int length) {
 			int ch = _getch();
 			if (ch == 13) {
 				goToXY(0, coords[length - 1].y + 2);
+				playSuccessSound();
 				return select;
 			}
 			if (ch == 224) {
+				playBeepSound();
 				ch = _getch();
 				switch (ch) {
 				case 72:
@@ -76,9 +79,11 @@ int spaceToStart() {
 	while (1) {
 		char ch = _getch();
 		if (ch == 32) {
+			playSuccessSound();
 			return 1;
 		}
 		if (ch == 27) {
+			playSuccessSound();
 			return 0;
 		}
 	}
@@ -88,6 +93,7 @@ void escToExit() {
 	while (1) {
 		char ch = _getch();
 		if (ch == 27) {
+			playSuccessSound();
 			break;
 		}
 	}
@@ -99,14 +105,17 @@ void reward(int* coin, int* key, int chance, int reward, int isAlreadyCleared) {
 		printf("\"최초 클리어 보상을 획득하였습니다!\" (+%dG)\n", FIRST_CLEAR_REWARD);
 		printf("\"클리어 보상 획득하였습니다!\" (+%dG)\n", reward);
 		(*coin) += FIRST_CLEAR_REWARD + reward;
+		playCoinCollectSound();
 	}
 	else if (rand() % 100 < chance) {
 		printf("\"축하합니다! 열쇠를 획득하였습니다!\"\n");
 		(*key)++;
+		playGetKeySound();
 	}
 	else {
 		printf("\"클리어 보상 획득하였습니다! (+%dG)\"\n", reward);
 		(*coin) += reward;
+		playCoinCollectSound();
 	}
 	printf(" ESC 키를 누르면 나가집니다.\n");
 	escToExit();

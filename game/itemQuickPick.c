@@ -32,6 +32,7 @@ void move(struct coord playerPos, struct flag* items, int size) {
 		}
 		int ch = _getch();
 		if (ch == 224) {
+			playBeepSound();
 			printf(" ");
 			ch = _getch();
 			switch (ch) {
@@ -71,6 +72,7 @@ int checkItem(int x, int y, struct flag* items, int size) {
 	for (int i = 0; i < size; i++) {
 		if (items[i].x == x && items[i].y == y && items[i].item_id == 0) {
 			items[i].item_id = 1;
+			playSuccessSound();
 			return 1;
 		}
 	}
@@ -95,6 +97,7 @@ int itemQuickPick() {
 		goToXY(0, 9);
 		printf("성공!\n\n");
 		printf("나가려면 ESC 키를 누르세요.\n");
+		playClearSound();
 		escToExit();
 		return 1;
     }

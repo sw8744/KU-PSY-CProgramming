@@ -5,6 +5,8 @@
 #include <string.h>
 #include <Windows.h>
 #include <conio.h>
+#include <mmsystem.h>
+#pragma comment(lib,"winmm.lib")
 
 // visual.c
 extern void printBanner(int start_x, int start_y);
@@ -37,6 +39,15 @@ extern void reward(int* coin, int* key, int chance, int reward, int isAlreadyCle
 
 // game.c
 extern void gameStarter(int gameID, int* coin, int* key, int keyStandard, int* chance, int* isGameCleared, int* isStageCleared, time_t startTime, int standardTime);
+
+// sound.c
+extern void playSuccessSound();
+extern void playBeepSound();
+extern void playClearSound();
+extern void playCoinCollectSound();
+extern void playFailSound();
+extern void playGetKeySound();
+extern void playCoinShakingSound();
 
 // ascii.c
 extern char banner[];

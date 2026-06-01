@@ -35,6 +35,7 @@ int sniper() {
                 if (ch == 13) {
                     if (x == 7) {
                         isHorizontalAligned = 1;
+                        playSuccessSound();
                     }
                     break;
                 }
@@ -65,6 +66,7 @@ int sniper() {
                     if (ch == 13) {
                         if (y == 5) {
                             isVerticalAligned = 1;
+                            playSuccessSound();
                         }
                         break;
                     }
@@ -78,9 +80,11 @@ int sniper() {
         if (isHorizontalAligned && isVerticalAligned) {
             printf("조준경 정렬에 성공했습니다!\n\n");
             returnValue = 1;
+            playClearSound();
         }
         else {
             printf("조준경 정렬에 실패했습니다!\n\n");
+            playFailSound();
         }
         printf("나가려면 ESC 키를 누르세요.");
         escToExit();

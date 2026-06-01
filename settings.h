@@ -38,5 +38,5 @@
 
 //typingPractice
 #define NUM_SENTENCES 8
-#define MAX_LENGTH 100
+#define MAX_LENGTH 256
 #define TIME_LIMIT 15.0

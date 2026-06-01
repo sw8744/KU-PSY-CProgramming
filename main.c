@@ -40,9 +40,9 @@ int main(void) {
 
 			// 난이도 선택
 			printBanner(0, 0);
-			printBox(0, 7, "쉬움", isEasySelected);
-			printBox(0, 10, "보통", isNormalSelected);
-			printBox(0, 13, "어려움", isHardSelected);
+			printBox(0, 7, "쉬움(200초)", isEasySelected);
+			printBox(0, 10, "보통(300초)", isNormalSelected);
+			printBox(0, 13, "어려움(400초)", isHardSelected);
 
 			struct coord coords[3] = { {3, -1}, {3, -1}, {3, -1} };
 			int length = 3;
@@ -125,7 +125,7 @@ int main(void) {
 					goToXY(playerPos.x, playerPos.y);
 					int game = movePlayer(&playerPos.x, &playerPos.y, flags, FLAG_COUNT_EASY, WIDTH_EASY, HEIGHT_EASY).item_id;
 
-					if (game >= -1) {
+					if (game >= -2) {
 						gameStarter(game, &coin, &key, KEY_STANDARD_EASY, &chance, isGameCleared, &isEasyCleared, startTime, TIME_STANDARD_EASY);
 						clear();
 						placeStage(WIDTH_EASY, HEIGHT_EASY);
@@ -164,7 +164,7 @@ int main(void) {
 					goToXY(playerPos.x, playerPos.y);
 					int game = movePlayer(&playerPos.x, &playerPos.y, flags, FLAG_COUNT_NORMAL, WIDTH_NORMAL, HEIGHT_NORMAL).item_id;
 
-					if (game >= -1) {
+					if (game >= -2) {
 						gameStarter(game, &coin, &key, KEY_STANDARD_NORMAL, &chance, isGameCleared, &isNormalCleared, startTime, TIME_STANDARD_NORMAL);
 						clear();
 						placeStage(WIDTH_NORMAL, HEIGHT_NORMAL);
@@ -203,7 +203,7 @@ int main(void) {
 					goToXY(playerPos.x, playerPos.y);
 					int game = movePlayer(&playerPos.x, &playerPos.y, flags, FLAG_COUNT_HARD, WIDTH_HARD, HEIGHT_HARD).item_id;
 
-					if (game >= -1) {
+					if (game >= -2) {
 						gameStarter(game, &coin, &key, KEY_STANDARD_HARD, &chance, isGameCleared, &isHardCleared, startTime, TIME_STANDARD_HARD);
 						clear();
 						placeStage(WIDTH_HARD, HEIGHT_HARD);
