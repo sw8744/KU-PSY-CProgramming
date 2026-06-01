@@ -41,6 +41,7 @@ extern void reward(int* coin, int* key, int chance, int reward, int isAlreadyCle
 extern void gameStarter(int gameID, int* coin, int* key, int keyStandard, int* chance, int* isGameCleared, int* isStageCleared, time_t startTime, int standardTime);
 
 // sound.c
+extern void initSound();
 extern void playSuccessSound();
 extern void playBeepSound();
 extern void playClearSound();

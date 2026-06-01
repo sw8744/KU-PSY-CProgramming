@@ -1,6 +1,5 @@
 #include "header.h"
 #include "settings.h"
-#include "resource.h"
 
 int random_range(int min, int max) {
 	return rand() % (max - min) + min;
