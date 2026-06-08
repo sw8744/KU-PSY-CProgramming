@@ -1,12 +1,6 @@
 ﻿#include "../header.h"
 #include "../settings.h"
 
-void clear_buffer() {
-    while (_kbhit()) {
-        _getch();
-    }
-}
-
 int typingPractice() {
     clear();
 
@@ -30,8 +24,6 @@ int typingPractice() {
     printf("시작하려면 스페이스를 누르세요. \n나가려면 ESC를 누르세요.\n");
     if (spaceToStart()) {
         clear();
-
-        clear_buffer();
 
         printf("[ 문제 ] %s\n", sentences[randomIndex]);
         printf("[ 입력 ] ");

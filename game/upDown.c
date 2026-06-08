@@ -45,6 +45,7 @@ int upDown(void) {
 					while (getchar() != '\n');
 					continue;
 				}
+				while (getchar() != '\n');
 
 				arr[2] = choice;
 				arr[0] = arr[2] - 2;

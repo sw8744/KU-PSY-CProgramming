@@ -56,6 +56,7 @@ int rockScissorsPaper() {
 			com = rand() % 3;
 			printf("가위, 바위, 보 중 하나를 입력하시오 : ");
 			scanf("%s", answer);
+			while (getchar() != '\n');
 
 			if (strcmp(answer, "바위") == 0) {
 				printHand(1, 1);

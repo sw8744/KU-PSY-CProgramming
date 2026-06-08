@@ -75,6 +75,7 @@ int holZzak(void) {
 				while (getchar() != '\n');
 				continue;
 			}
+			while (getchar() != '\n');
 			
 			if ((choice == 1) || (choice == 2)){
 				s = isHolZzakSame(coin, choice);
@@ -95,6 +96,7 @@ int holZzak(void) {
 			}
 
 		} while (1);
+
 
 		printf("나가려면 ESC 키를 누르세요.");
 		escToExit();
