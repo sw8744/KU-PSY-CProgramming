@@ -96,6 +96,7 @@ extern int checkItem(int x, int y, struct flag* items, int size);
 extern int itemQuickPick();
 
 // typingPractice.c
+extern void clear_buffer();
 extern int typingPractice();
 
 //chamCham.c
